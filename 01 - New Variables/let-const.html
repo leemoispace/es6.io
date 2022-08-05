@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>let and const</title>
-</head>
-<body>
-<script>
-  const key = 'abc123';
-  let points = 50;
-  let winner = false;
+  <head>
+    <meta charset="UTF-8" />
+    <title>let and const</title>
+  </head>
+  <body>
+    <script>
+      const key = "abc123";
+      let points = 50;
+      let winner = false;
 
-  const person = {
-    name: 'Wes',
-    age: 28
-  }
+      if (points > 40) {
+        let winner = true;
+      }
 
-  const wes = Object.freeze(person);
+      points = 60;
+      //key = "abc";
 
-</script>
-</body>
+      const person = {
+        name: "Wes",
+        age: 28,
+      };
+      person.age = 29;
+
+      const wes = Object.freeze(person);
+      wes.age = 30;
+    </script>
+  </body>
 </html>
