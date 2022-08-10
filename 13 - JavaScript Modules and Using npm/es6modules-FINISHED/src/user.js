@@ -1,6 +1,6 @@
-import slug from 'slugify';
-import { url } from './config';
-import md5 from 'md5';
+import slug from "slugify";
+import { url } from "./config";
+import md5 from "md5";
 
 export default function User(name, email, website) {
   return { name, email, website };
