@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Native Promises</title>
+  </head>
 
-<head>
-  <title>Native Promises</title>
-</head>
+  <video controls class="handsome"></video>
 
-<video controls class="handsome"></video>
+  <body>
+    <script>
+      fetch("https://api.github.com/users/leemoispace")
+        .then((res) => {
+          return res.json();
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.error("OH NOO!");
+          console.error(err);
+        });
 
-<body>
-  <script>
-
-  </script>
-</body>
-
+      const video = document.querySelector(".handsome");
+      navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then((mediaStream) => {
+          video.srcObject = mediaStream;
+          video.load();
+          video.play();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    </script>
+  </body>
 </html>
