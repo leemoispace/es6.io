@@ -1,27 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Inheritance Review</title>
-</head>
-<body>
-<script>
-  function Dog(name, breed) {
-    this.name = name;
-    this.breed = breed;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <title>Inheritance Review</title>
+  </head>
+  <body>
+    <script>
+      class Dog {
+        constructor(name, breed) {
+          this.name = name;
+          this.breed = breed;
+        }
+        bark() {
+          console.log(`Bark Bark! My name is ${this.name}`);
+        }
+        cuddle() {
+          console.log(`I love you owner!`);
+        }
+        //not inherited by instances
+        static info() {
+          console.log("A dog is better than a cat by 10 times");
+        }
+        get description() {
+          return `${this.name} is a ${this.breed} type of dog`;
+        }
+        set nicknames(value) {
+          this.nick = value.trim();
+        }
+        get nicknames() {
+          return this.nick.toUpperCase();
+        }
+      }
 
-  Dog.prototype.bark = function() {
-    console.log(`Bark Bark! My name is ${this.name}`);
-  };
+      function Dog(name, breed) {
+        this.name = name;
+        this.breed = breed;
+      }
 
-  Dog.prototype.cuddle = function() {
-    console.log(`I love you owner!`);
-  };
+      Dog.prototype.bark = function () {
+        console.log(`Bark Bark! My name is ${this.name}`);
+      };
 
-  const snickers = new Dog('Snickers', 'King Charles');
-  const sunny = new Dog('Sunny', 'Golden Doodle');
+      Dog.prototype.cuddle = function () {
+        console.log(`I love you owner!`);
+      };
 
-</script>
-</body>
+      const snickers = new Dog("Snickers", "King Charles");
+      const sunny = new Dog("Sunny", "Golden Doodle");
+    </script>
+  </body>
 </html>

@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Creating Promises!</title>
-</head>
-<body>
-<script>
-  const p = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      reject(Error('Err wes isn\'t cool'));
-    }, 1000);
-  });
+  <head>
+    <meta charset="UTF-8" />
+    <title>Creating Promises!</title>
+  </head>
+  <body>
+    <script>
+      //resolve and reject giving return value of promise
+      const p = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject(Error("Err wes isn't cool"));
+        }, 1000);
+      });
 
-  p
-    .then(data => {
-      console.log(data);
-    })
-    .catch(err => {
-      console.error(err);
-    });
+      p.then((data) => {
+        console.log(data);
+      }).catch((err) => {
+        console.error(err);
+      });
 
-</script>
-</body>
+      const p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("wes isn't cool");
+        }, 1000);
+      });
+
+      p1.then((data) => {
+        console.log(data);
+      }).catch((err) => {
+        console.error(err);
+      });
+    </script>
+  </body>
 </html>
